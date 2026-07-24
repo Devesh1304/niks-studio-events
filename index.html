@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nik's Studio and Events | Lunawada</title>
-  <meta name="description" content="Nik's Studio and Events - Professional event management and photography services in Lunawada, Gujarat. Weddings, corporate events, birthdays & more.">
+  <meta name="description" content="Nik's Studio and Events - Professional event management and photography services in Lunawada, Gujarat. Weddings, corporate events & more.">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -242,6 +242,34 @@
       height: 2px;
       background: var(--gold);
       margin: 20px auto 0;
+    }
+
+    /* Anniversary */
+    .anniversary {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .anniversary-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .anniversary-video {
+      width: 100%;
+      max-width: 700px;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(212, 168, 83, 0.2);
+    }
+
+    .anniversary-text {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: var(--white);
+      opacity: 0.85;
+      line-height: 1.8;
+      font-style: italic;
     }
 
     /* About */
@@ -685,8 +713,8 @@
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -708,6 +736,22 @@
     </div>
   </section>
 
+  <!-- 10th Anniversary -->
+  <section class="anniversary" id="anniversary">
+    <div class="section-header fade-in">
+      <h2>Celebrating 10 Years</h2>
+      <p>A Decade of Unforgettable Moments</p>
+      <div class="divider"></div>
+    </div>
+    <div class="anniversary-content fade-in">
+      <video class="anniversary-video" autoplay muted loop playsinline>
+        <source src="Golden_anniversary.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="anniversary-text">Thank you for trusting us with your most precious moments for 10 wonderful years. Here's to many more celebrations together!</p>
+    </div>
+  </section>
+
   <!-- About -->
   <section class="about" id="about">
     <div class="section-header fade-in">
@@ -717,7 +761,7 @@
     </div>
     <div class="about-content fade-in">
       <p>Nik's Studio and Events is Lunawada's trusted name in professional event management and photography. We specialize in transforming your special occasions into timeless memories with our creative vision and meticulous planning.</p>
-      <p>Whether it's a grand wedding, an intimate birthday celebration, a corporate gathering, or a religious ceremony, our experienced team ensures every detail is perfectly crafted to exceed your expectations.</p>
+      <p>Whether it's a grand wedding, a corporate gathering, an engagement ceremony, or a religious celebration, our experienced team ensures every detail is perfectly crafted to exceed your expectations.</p>
       <div class="stats">
         <div class="stat">
           <h3>500+</h3>
@@ -739,47 +783,6 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="section-header fade-in">
-      <h2>Our Services</h2>
-      <p>What We Offer</p>
-      <div class="divider"></div>
-    </div>
-    <div class="services-grid">
-      <div class="service-card fade-in">
-        <div class="service-icon">&#128141;</div>
-        <h3>Wedding Planning</h3>
-        <p>Complete wedding management from mehendi to reception. Venue decoration, catering coordination, and flawless execution of your dream wedding.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">&#127909;</div>
-        <h3>Photography & Video</h3>
-        <p>Professional photography and cinematic videography to capture every precious moment of your celebration in stunning detail.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">&#127878;</div>
-        <h3>Birthday Parties</h3>
-        <p>Fun and creative birthday celebrations with themed decorations, entertainment, and complete party management for all ages.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">&#127970;</div>
-        <h3>Corporate Events</h3>
-        <p>Professional corporate event solutions including seminars, product launches, team outings, and annual celebrations.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">&#127895;</div>
-        <h3>Stage & Decoration</h3>
-        <p>Stunning stage setups, floral arrangements, lighting design, and thematic decorations that transform any venue.</p>
-      </div>
-      <div class="service-card fade-in">
-        <div class="service-icon">&#127926;</div>
-        <h3>Entertainment</h3>
-        <p>DJ, live music, anchoring, and entertainment arrangements to keep your guests engaged and the celebration lively.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- Gallery -->
   <section class="gallery" id="gallery">
     <div class="section-header fade-in">
@@ -797,13 +800,6 @@
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
-          <span class="icon">&#127878;</span>
-          <span>Birthday Event</span>
-        </div>
-        <span class="gallery-label">Birthday Bash</span>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
           <span class="icon">&#127895;</span>
           <span>Stage Decoration</span>
         </div>
@@ -814,7 +810,7 @@
           <span class="icon">&#127970;</span>
           <span>Corporate Event</span>
         </div>
-        <span class="gallery-label">Corporate Meet</span>
+        <span class="gallery-label">Divya Bhaskar Event</span>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
@@ -836,6 +832,42 @@
     </p>
   </section>
 
+  <!-- Services -->
+  <section class="services" id="services">
+    <div class="section-header fade-in">
+      <h2>Our Services</h2>
+      <p>What We Offer</p>
+      <div class="divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128141;</div>
+        <h3>Wedding Planning</h3>
+        <p>Complete wedding management from mehendi to reception. Venue decoration, catering coordination, and flawless execution of your dream wedding.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127909;</div>
+        <h3>Photography & Video</h3>
+        <p>Professional photography and cinematic videography to capture every precious moment of your celebration in stunning detail.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127970;</div>
+        <h3>Corporate Events</h3>
+        <p>Professional corporate event solutions including seminars, product launches, team outings, and annual celebrations. Proud to have worked with Divya Bhaskar.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127895;</div>
+        <h3>Stage & Decoration</h3>
+        <p>Stunning stage setups, floral arrangements, lighting design, and thematic decorations that transform any venue.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127926;</div>
+        <h3>Entertainment</h3>
+        <p>DJ, live music, anchoring, and entertainment arrangements to keep your guests engaged and the celebration lively.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials -->
   <section class="testimonials" id="testimonials">
     <div class="section-header fade-in">
@@ -852,15 +884,15 @@
       </div>
       <div class="testimonial-card fade-in">
         <div class="quote-icon">"</div>
-        <p>We hired them for our company's annual function and they exceeded all expectations. Professional, creative, and extremely well organized. Highly recommended!</p>
+        <p>We hired Nik's Studio for our Divya Bhaskar corporate event and they exceeded all expectations. Professional, creative, and extremely well organized. Highly recommended!</p>
         <div class="testimonial-author">Amit Shah</div>
-        <div class="testimonial-event">Corporate Annual Day</div>
+        <div class="testimonial-event">Divya Bhaskar Corporate Event</div>
       </div>
       <div class="testimonial-card fade-in">
         <div class="quote-icon">"</div>
-        <p>My daughter's birthday party was a dream come true! The themed decoration was stunning and the kids had an amazing time. Thank you Nik's Studio!</p>
+        <p>Nik's Studio handled our engagement ceremony beautifully. The stage decoration and photography were top-notch. Every moment was captured perfectly!</p>
         <div class="testimonial-author">Meena Desai</div>
-        <div class="testimonial-event">Birthday Celebration</div>
+        <div class="testimonial-event">Engagement Ceremony</div>
       </div>
     </div>
   </section>
@@ -906,7 +938,7 @@
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <input type="text" placeholder="Your Name" required>
         <input type="tel" placeholder="Phone Number" required>
-        <input type="text" placeholder="Event Type (Wedding, Birthday, etc.)">
+        <input type="text" placeholder="Event Type (Wedding, Corporate, etc.)">
         <input type="date" placeholder="Event Date">
         <textarea placeholder="Tell us about your event..." rows="4"></textarea>
         <button type="submit" class="btn btn-filled">Send Inquiry</button>
@@ -930,8 +962,8 @@
     <div class="footer-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="social-links">
