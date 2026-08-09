@@ -120,6 +120,37 @@
       transition: 0.3s;
     }
 
+    .language-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .lang-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .lang-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
     /* Hero */
     .hero {
       min-height: 100vh;
@@ -662,6 +693,10 @@
       <li><a href="#why-choose">Why Us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="language-toggle">
+      <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('gu')">ગુ</button>
+    </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -674,17 +709,17 @@
         <img src="logo.png" alt="Nik's Events & Studio">
       </div>
       <h1>Nik's Events & Studio</h1>
-      <p class="tagline">Crafting Unforgettable Moments</p>
-      <p class="subtitle">From dream weddings to grand celebrations, we bring your vision to life with elegance, creativity, and flawless execution in Lunawada and beyond.</p>
-      <a href="#contact" class="btn">Book Your Event</a>
+      <p class="tagline" data-i18n="tagline">Crafting Unforgettable Moments</p>
+      <p class="subtitle" data-i18n="subtitle">From dream weddings to grand celebrations, we bring your vision to life with elegance, creativity, and flawless execution in Central Gujarat and beyond.</p>
+      <a href="#contact" class="btn" data-i18n="bookevent">Book Your Event</a>
     </div>
   </section>
 
   <!-- 10th Anniversary -->
   <section class="anniversary" id="anniversary">
     <div class="section-header fade-in">
-      <h2>Celebrating 10 Years</h2>
-      <p>A Decade of Unforgettable Moments</p>
+      <h2 data-i18n="celebrating10">Celebrating 10 Years</h2>
+      <p data-i18n="adecade">A Decade of Unforgettable Moments</p>
       <div class="divider"></div>
     </div>
     <div class="anniversary-content fade-in">
@@ -692,20 +727,20 @@
         <source src="Golden_anniversary.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="anniversary-text">Thank you for trusting us with your most precious moments for 10 wonderful years. Here's to many more celebrations together!</p>
+      <p class="anniversary-text" data-i18n="thankquote">Thank you for trusting us with your most precious moments for 10 wonderful years. Here's to many more celebrations together!</p>
     </div>
   </section>
 
   <!-- About -->
   <section class="about" id="about">
     <div class="section-header fade-in">
-      <h2>About Us</h2>
-      <p>Our Story</p>
+      <h2 data-i18n="about_title">About Us</h2>
+      <p data-i18n="about_story">Our Story</p>
       <div class="divider"></div>
     </div>
     <div class="about-content fade-in">
-      <p>Nik's Events & Studio is Central Gujarat's trusted name in comprehensive event management, photography, and digital media services. With 10+ years of excellence, we specialize in delivering end-to-end solutions for weddings, corporate events, live streaming, product shoots, virtual tours, and more.</p>
-      <p>From stage decoration and LED screen rentals to professional photography & videography, video creation, and government project services — our experienced team handles every detail with creativity and precision. Whether it's a grand wedding, corporate gathering, school annual day, or government function, we ensure every moment is perfectly crafted to exceed your expectations.</p>
+      <p data-i18n="about_text1">Nik's Events & Studio is Central Gujarat's trusted name in comprehensive event management, photography, and digital media services. With 10+ years of excellence, we specialize in delivering end-to-end solutions for weddings, corporate events, live streaming, product shoots, virtual tours, and more.</p>
+      <p data-i18n="about_text2">From stage decoration and LED screen rentals to professional photography & videography, video creation, and government project services — our experienced team handles every detail with creativity and precision. Whether it's a grand wedding, corporate gathering, school annual day, or government function, we ensure every moment is perfectly crafted to exceed your expectations.</p>
       <div class="stats">
         <div class="stat">
           <h3>2000+</h3>
@@ -730,8 +765,8 @@
   <!-- Gallery -->
   <section class="gallery" id="gallery">
     <div class="section-header fade-in">
-      <h2>Our Gallery</h2>
-      <p>Moments We've Captured</p>
+      <h2 data-i18n="gallery_title">Our Gallery</h2>
+      <p data-i18n="moments">Moments We've Captured</p>
       <div class="divider"></div>
     </div>
     <div class="video-grid fade-in">
@@ -747,8 +782,8 @@
   <!-- Services -->
   <section class="services" id="services">
     <div class="section-header fade-in">
-      <h2>Our Services</h2>
-      <p>What We Offer</p>
+      <h2 data-i18n="services_title">Our Services</h2>
+      <p data-i18n="offertitle">What We Offer</p>
       <div class="divider"></div>
     </div>
     <div class="services-grid">
@@ -818,8 +853,8 @@
   <!-- Why Choose Us -->
   <section class="why-choose" id="why-choose">
     <div class="section-header fade-in">
-      <h2>Why Choose Us</h2>
-      <p>What Sets Us Apart</p>
+      <h2 data-i18n="whychoose_title">Why Choose Us</h2>
+      <p data-i18n="apart">What Sets Us Apart</p>
       <div class="divider"></div>
     </div>
     <div class="why-grid">
@@ -849,8 +884,8 @@
   <!-- Contact -->
   <section class="contact" id="contact">
     <div class="section-header fade-in">
-      <h2>Get In Touch</h2>
-      <p>Let's Plan Your Event</p>
+      <h2 data-i18n="gettouch">Get In Touch</h2>
+      <p data-i18n="planevnt">Let's Plan Your Event</p>
       <div class="divider"></div>
     </div>
     <div class="contact-wrapper fade-in">
@@ -858,22 +893,22 @@
         <div class="contact-item">
           <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Vadodara (Office)</h4>
-            <p>Rajmahel Road,<br>Vadodara, Gujarat 390001</p>
+            <h4 data-i18n="visit">Vadodara (Office)</h4>
+            <p data-i18n="visittext">Rajmahel Road, Vadodara, Gujarat 390001</p>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Godhra (Office)</h4>
-            <p>Hari Krrishna Soc., Ta. Godhra,<br>Dist. Panchmahal, Gujarat</p>
+            <h4 data-i18n="godhra">Godhra (Office)</h4>
+            <p data-i18n="godhra_text">Hari Krrishna Soc., Ta. Godhra, Dist. Panchmahal, Gujarat</p>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Lunawada (Office)</h4>
-            <p>Varadhari Road, Behind BSNL Office,<br>Ta. Lunawada, Dist. Mahisagar, Gujarat</p>
+            <h4 data-i18n="lunawada">Lunawada (Office)</h4>
+            <p data-i18n="lunawada_text">Varadhari Road, Behind BSNL Office, Ta. Lunawada, Dist. Mahisagar, Gujarat</p>
           </div>
         </div>
         <div class="contact-item">
@@ -935,6 +970,95 @@
   </a>
 
   <script>
+    // Translations
+    const translations = {
+      en: {
+        home: 'Home', about: 'About', gallery: 'Gallery', services: 'Services', whyus: 'Why Us', contact: 'Contact',
+        tagline: 'Crafting Unforgettable Moments',
+        subtitle: 'From dream weddings to grand celebrations, we bring your vision to life with elegance, creativity, and flawless execution in Central Gujarat and beyond.',
+        bookevent: 'Book Your Event',
+        celebrating10: 'Celebrating 10 Years',
+        adecade: 'A Decade of Unforgettable Moments',
+        thankquote: 'Thank you for trusting us with your most precious moments for 10 wonderful years. Here\'s to many more celebrations together!',
+        about_title: 'About Us', about_story: 'Our Story',
+        about_text1: 'Nik\'s Events & Studio is Central Gujarat\'s trusted name in comprehensive event management, photography, and digital media services. With 10+ years of excellence, we specialize in delivering end-to-end solutions for weddings, corporate events, live streaming, product shoots, virtual tours, and more.',
+        about_text2: 'From stage decoration and LED screen rentals to professional photography & videography, video creation, and government project services — our experienced team handles every detail with creativity and precision. Whether it\'s a grand wedding, corporate gathering, school annual day, or government function, we ensure every moment is perfectly crafted to exceed your expectations.',
+        events: 'Events Completed', years: 'Years Experience', satisfaction: 'Client Satisfaction', venues: 'Venues Covered',
+        gallery_title: 'Our Gallery', moments: 'Moments We\'ve Captured',
+        services_title: 'Our Services', offertitle: 'What We Offer',
+        weddingevents: 'Wedding & Events', photo: 'Photography & Videography', corporate: 'Corporate Events',
+        ledscreen: 'LED Screen Rent & Setup', school: 'School & College Events', stage: 'Stage & Decoration',
+        livestream: 'Live Streaming & Broadcast', product: 'Product Photo Shoot', virtual: 'Google Virtual Tour',
+        government: 'Government Projects', video: 'Video Creation', entertainment: 'Entertainment',
+        whychoose_title: 'Why Choose Us', apart: 'What Sets Us Apart',
+        years10: '10+ Years of Experience', events2000: '2000+ Events Delivered',
+        youtube: 'YouTube Silver Button', studio: 'Studio + Events Under One Roof',
+        gettouch: 'Get In Touch', planevnt: 'Let\'s Plan Your Event',
+        visit: 'Vadodara (Office)', visittext: 'Rajmahel Road, Vadodara, Gujarat 390001',
+        godhra: 'Godhra (Office)', godhra_text: 'Hari Krrishna Soc., Ta. Godhra, Dist. Panchmahal, Gujarat',
+        lunawada: 'Lunawada (Office)', lunawada_text: 'Varadhari Road, Behind BSNL Office, Ta. Lunawada, Dist. Mahisagar, Gujarat',
+        call: 'Call Us', email: 'Email Us', hours: 'Working Hours', workhours: 'Mon - Sat: 10:00 AM - 8:00 PM\nSunday: By Appointment',
+        send: 'Send Inquiry', name: 'Your Name', phone: 'Phone Number', eventtype: 'Event Type (Wedding, Corporate, etc.)', eventdate: 'Event Date', about_event: 'Tell us about your event...'
+      },
+      gu: {
+        home: 'હોમ', about: 'વિશે', gallery: 'ગ્યાલેરી', services: 'સેવાઓ', whyus: 'શા માટે આપણે', contact: 'સંપર્ક',
+        tagline: 'અવિસ્મરણીય ક્ષણો બનાવી રહ્યા છીએ',
+        subtitle: 'સ્વપ્નની વિશાદીમાથી લઈને ભવ્ય ઉત્સવ સુધી, આપણે તમારા દૃષ્ટિકોણને મર્યાદા વિગર આદર્શશીલતા, સર્જનશીલતા અને નિર્ભુલ સમપર્ણ સાથે જીવંત કરીએ છીએ.',
+        bookevent: 'તમારી ઇવેન્ટ બુક કરો',
+        celebrating10: '10 વર્ષ ઉજવણી',
+        adecade: 'અવિસ્મરણીય ક્ષણોનો એક દશક',
+        thankquote: '10 અદ્ભુત વર્ષો માટે તમારા સૌથી મૂલ્યવાન ક્ષણો આપણને સોંપ્યા બદલ આભાર. વધુ ઘણા ઉત્સવ માટે!',
+        about_title: 'આપણા વિશે', about_story: 'આપણો ઇતિહાસ',
+        about_text1: 'Nik\'s Events & Studio એ મધ્ય ગુજરાતમાં ફોટોગ્રાફી અને ડિજિટલ મીડિયા સેવાઓમાં એક વિશ્વસ્ત નામ છે. 10+ વર્ષોના શ્રેષ્ઠતા સાથે, આપણે લગ્ન, કોર્પોરેટ ઇવેન્ટ, લાઇવ સ્ટ્રીમિંગ, ટ્રીપોડ શૂટ, વર્ચુઅલ ટુર્સ અને વધુમાં સંપૂર્ણ ઉકેલ આપીને વિશેષજ્ઞતા પ્રદર્શન કરીએ છીએ.',
+        about_text2: 'સ્ટેજ સજાવટ અને LED સ્ક્રીન કરાણાથી લઈને વ્યાવસાયિક ફોટોગ્રાફી અને વિડિયોગ્રાફી, વીડિયો સર્જન અને સરકારી પ્રોજેક્ટ સેવાઓ સુધી — આપણું અનુભવી ટીમ પ્રત્યેક વિગત સર્જનશીલતા અને સાવધાનીથી સંભાળે છે. લગ્ન, કોર્પોરેટ ગતિવિધી, શાળા વાર્ષિક દિવસ અથવા સરકારી કાર્યક્રમ હોય, આપણે પ્રત્યેક ક્ષણને સંપૂર્ણતા સાથે સર્જન કરીએ છીએ.',
+        events: 'ઇવેન્ટ પૂર્ણ કર્યા', years: 'વર્ષોનો અનુભવ', satisfaction: 'ગ્રાહક સંતુષ્ટિ', venues: 'સ્થળો આવરી લીધા',
+        gallery_title: 'આપણી ગ્યાલેરી', moments: 'આપણે આવતા ક્ષણો',
+        services_title: 'આપણી સેવાઓ', offertitle: 'આપણે શું આપીએ છીએ',
+        weddingevents: 'લગ્ન અને ઇવેન્ટ્સ', photo: 'ફોટોગ્રાફી અને વિડિયોગ્રાફી', corporate: 'કોર્પોરેટ ઇવેન્ટ્સ',
+        ledscreen: 'LED સ્ક્રીન ભાડે અને સેટઅપ', school: 'શાળા અને કૉલેજ ઇવેન્ટ્સ', stage: 'સ્ટેજ અને સજાવટ',
+        livestream: 'લાઇવ સ્ટ્રીમિંગ અને બ્રોડકાસ્ટ', product: 'પ્રોડક્ટ ફોટો શૂટ', virtual: 'Google વર્ચુઅલ ટુર',
+        government: 'સરકારી પ્રોજેક્ટ્સ', video: 'વીડિયો સર્જન', entertainment: 'મનોરંજન',
+        whychoose_title: 'શા માટે આપણાને પસંદ કરો', apart: 'શું આપણાને અલગ બનાવે છે',
+        years10: '10+ વર્ષોનો અનુભવ', events2000: '2000+ ઇવેન્ટ્સ પ્રદાન કર્યા',
+        youtube: 'YouTube સિલ્વર બટન', studio: 'એક છતની તળે સ્ટુડિયો અને ઇવેન્ટ્સ',
+        gettouch: 'આપણાને સંપર્ક કરો', planevnt: 'તમારી ઇવેન્ટ યોજનાબદ્ધ કરીએ',
+        visit: 'વડોદરા (કાર્યાલય)', visittext: 'રાજમહેલ રોડ, વડોદરા, ગુજરાત 390001',
+        godhra: 'ગોધરા (કાર્યાલય)', godhra_text: 'હરિ કૃષ્ણ સોસાયટી, તા. ગોધરા, જિ. પંચમહાલ, ગુજરાત',
+        lunawada: 'લુણાવાડા (કાર્યાલય)', lunawada_text: 'વરધાર્ણ રોડ, BSNL કાર્યાલયની પાછળ, તા. લુણાવાડા, જિ. મહીસાગર, ગુજરાત',
+        call: 'આપણાને કૉલ કરો', email: 'ઈમેલ આપણાને', hours: 'કાર્યક્ષમતાનો સમય', workhours: 'સોમ - શનિ: 10:00 AM - 8:00 PM\nરવિવાર: નિમંત્રણ દ્વારા',
+        send: 'પૂછપરછ મોકલો', name: 'તમારું નામ', phone: 'ફોન નંબર', eventtype: 'ઇવેન્ટ પ્રકાર', eventdate: 'ઇવેન્ટ તારીખ', about_event: 'તમારી ઇવેન્ટ વિશે બતાવો...'
+      }
+    };
+
+    let currentLanguage = 'en';
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      localStorage.setItem('language', lang);
+      updatePageLanguage();
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function updatePageLanguage() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLanguage][key]) {
+          el.textContent = translations[currentLanguage][key];
+        }
+      });
+    }
+
+    // Load saved language on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('language') || 'en';
+      if (saved !== 'en') {
+        currentLanguage = saved;
+        document.querySelectorAll('.lang-btn')[saved === 'gu' ? 1 : 0].classList.add('active');
+        updatePageLanguage();
+      }
+    });
+
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
       document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
