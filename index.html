@@ -367,99 +367,23 @@
     /* Gallery */
     .gallery { background: var(--black-light); }
 
-    .reels-container {
-      display: flex;
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding: 0 5% 20px;
-      max-width: 100%;
-      scrollbar-width: none;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .reels-container::-webkit-scrollbar { display: none; }
-
-    .reel-item {
-      flex: 0 0 280px;
-      height: 500px;
-      scroll-snap-align: center;
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--black-card);
-      border: 1px solid rgba(212, 168, 83, 0.15);
-      cursor: pointer;
-    }
-
-    .reel-item video,
-    .reel-item iframe {
+    .video-grid video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: none;
-      border-radius: 16px;
-    }
-
-    .reel-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 40px 16px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .reel-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-
-    .reel-subtitle {
-      font-size: 0.75rem;
-      color: var(--gray);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .reel-play-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50px;
-      height: 50px;
-      background: rgba(212, 168, 83, 0.8);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 3;
-      opacity: 0;
-      transition: opacity 0.3s;
-      font-size: 1.2rem;
-      color: var(--black);
-    }
-
-    .reel-item.paused .reel-play-icon { opacity: 1; }
-
-    .reels-scroll-hint {
-      text-align: center;
-      margin-top: 15px;
-      color: var(--gray);
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(212, 168, 83, 0.2);
     }
 
     @media (max-width: 768px) {
-      .reel-item {
-        flex: 0 0 240px;
-        height: 420px;
-      }
+      .video-grid { grid-template-columns: 1fr; }
     }
 
     /* Why Choose Us */
@@ -584,18 +508,6 @@
       color: var(--gray);
     }
 
-    /* Map */
-    .map-section {
-      width: 100%;
-      height: 300px;
-      filter: grayscale(0.8) contrast(1.1);
-    }
-
-    .map-section iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
 
     /* Footer */
     .footer {
@@ -822,59 +734,14 @@
       <p>Moments We've Captured</p>
       <div class="divider"></div>
     </div>
-    <div class="reels-container">
-      <div class="reel-item paused">
-        <video muted loop playsinline preload="metadata">
-          <source src="Videos/1.mp4" type="video/mp4">
-        </video>
-        <div class="reel-play-icon">&#9654;</div>
-        <div class="reel-overlay">
-          <div class="reel-title">Nik's Events & Studio</div>
-          <div class="reel-subtitle">Nik's Events & Studio</div>
-        </div>
-      </div>
-      <div class="reel-item paused">
-        <video muted loop playsinline preload="metadata">
-          <source src="Videos/2.mp4" type="video/mp4">
-        </video>
-        <div class="reel-play-icon">&#9654;</div>
-        <div class="reel-overlay">
-          <div class="reel-title">Nik's Events & Studio</div>
-          <div class="reel-subtitle">Nik's Events & Studio</div>
-        </div>
-      </div>
-      <div class="reel-item paused">
-        <video muted loop playsinline preload="metadata">
-          <source src="Videos/3.mp4" type="video/mp4">
-        </video>
-        <div class="reel-play-icon">&#9654;</div>
-        <div class="reel-overlay">
-          <div class="reel-title">Nik's Events & Studio</div>
-          <div class="reel-subtitle">Nik's Events & Studio</div>
-        </div>
-      </div>
-      <div class="reel-item paused">
-        <video muted loop playsinline preload="metadata">
-          <source src="Videos/4.mp4" type="video/mp4">
-        </video>
-        <div class="reel-play-icon">&#9654;</div>
-        <div class="reel-overlay">
-          <div class="reel-title">Nik's Events & Studio</div>
-          <div class="reel-subtitle">Nik's Events & Studio</div>
-        </div>
-      </div>
-      <div class="reel-item paused">
-        <video muted loop playsinline preload="metadata">
-          <source src="Videos/5.mp4" type="video/mp4">
-        </video>
-        <div class="reel-play-icon">&#9654;</div>
-        <div class="reel-overlay">
-          <div class="reel-title">Nik's Events & Studio</div>
-          <div class="reel-subtitle">Nik's Events & Studio</div>
-        </div>
-      </div>
+    <div class="video-grid fade-in">
+      <video autoplay muted loop playsinline><source src="Videos/0.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline><source src="Videos/1.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline><source src="Videos/2.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline><source src="Videos/3.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline><source src="Videos/4.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline><source src="Videos/5.mp4" type="video/mp4"></video>
     </div>
-    <p class="reels-scroll-hint">&#8592; Swipe to see more reels &#8594;</p>
   </section>
 
   <!-- Services -->
@@ -956,15 +823,30 @@
         <div class="contact-item">
           <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Visit Us</h4>
-            <p>Chhapaiya Dham Society,<br>Lunawada, Gujarat 389230</p>
+            <h4>Lunawada (Office)</h4>
+            <p>Varadhari Road, Behind BSNL Office,<br>Ta. Lunawada, Dist. Mahisagar, Gujarat</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div>
+            <h4>Vadodara (Office)</h4>
+            <p>B-1, Sai Nagar Soc., Nr. Khodiyar Nagar,<br>New VIP Road, Vadodara, Gujarat</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div>
+            <h4>Godhra (Office)</h4>
+            <p>Hari Krrishna Soc., Ta. Godhra,<br>Dist. Panchmahal, Gujarat</p>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#128222;</div>
           <div>
             <h4>Call Us</h4>
-            <a href="tel:+919979705570">+91 99797 05570</a>
+            <a href="tel:+919979705570">+91 99797 05570</a><br>
+            <a href="tel:+919737667050">+91 97376 67050</a>
           </div>
         </div>
         <div class="contact-item">
@@ -993,15 +875,6 @@
     </div>
   </section>
 
-  <!-- Map -->
-  <div class="map-section">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.5!2d73.595301!3d23.1242775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3960af039e9d5651%3A0x29fa9cd28edab2b7!2sChhapaiya%20Dham%20Society!5e0!3m2!1sen!2sin"
-      allowfullscreen=""
-      loading="lazy"
-      title="Nik's Events & Studio Location">
-    </iframe>
-  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1054,42 +927,6 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Reels: autoplay on scroll, pause when out of view
-    const reelObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const reel = entry.target;
-        const video = reel.querySelector('video');
-
-        if (entry.isIntersecting) {
-          if (video) {
-            video.play().catch(() => {});
-            reel.classList.remove('paused');
-          }
-        } else {
-          if (video) {
-            video.pause();
-            reel.classList.add('paused');
-          }
-        }
-      });
-    }, { threshold: 0.6 });
-
-    document.querySelectorAll('.reel-item').forEach(reel => {
-      reelObserver.observe(reel);
-
-      reel.addEventListener('click', () => {
-        const video = reel.querySelector('video');
-        if (!video) return;
-        if (video.paused) {
-          video.play();
-          reel.classList.remove('paused');
-        } else {
-          video.pause();
-          reel.classList.add('paused');
-        }
-      });
-    });
 
     // Form handler
     function handleSubmit(e) {
