@@ -365,19 +365,25 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .gallery-item {
-      aspect-ratio: 4/3;
+      aspect-ratio: 16/9;
       overflow: hidden;
       position: relative;
       cursor: pointer;
       background: var(--black-card);
       border: 1px solid rgba(212, 168, 83, 0.1);
+    }
+
+    .gallery-item iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     .gallery-item::before {
@@ -691,7 +697,7 @@
       .hero .tagline { font-size: 0.9rem; letter-spacing: 2px; }
 
       .services-grid,
-      .testimonials-grid,
+      .testimonials-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; }
 
       .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
@@ -792,44 +798,30 @@
     </div>
     <div class="gallery-grid fade-in">
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="icon">&#128247;</span>
-          <span>Wedding Photo</span>
-        </div>
-        <span class="gallery-label">Royal Wedding</span>
+        <iframe src="https://drive.google.com/file/d/1QQEefzcCVCD4XFrdaVbZ49Dz14wt9sme/preview" allow="autoplay" loading="lazy"></iframe>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="icon">&#127895;</span>
-          <span>Stage Decoration</span>
-        </div>
-        <span class="gallery-label">Stage Design</span>
+        <iframe src="https://drive.google.com/file/d/15zQFtM-FeUFvQ6a2Eo9r2HA9CBakWlcD/preview" allow="autoplay" loading="lazy"></iframe>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="icon">&#127970;</span>
-          <span>Corporate Event</span>
-        </div>
-        <span class="gallery-label">Divya Bhaskar Event</span>
+        <iframe src="https://drive.google.com/file/d/1zbI8AD76byliK9g1FzHsAM5Z-R3DCqi3/preview" allow="autoplay" loading="lazy"></iframe>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="icon">&#128141;</span>
-          <span>Engagement</span>
-        </div>
-        <span class="gallery-label">Ring Ceremony</span>
+        <iframe src="https://drive.google.com/file/d/1tSjU-h5G_il0JBgW6832lQp_jrfhdUbN/preview" allow="autoplay" loading="lazy"></iframe>
       </div>
       <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="icon">&#127926;</span>
-          <span>DJ Night</span>
-        </div>
-        <span class="gallery-label">DJ & Entertainment</span>
+        <iframe src="https://drive.google.com/file/d/13ywePtzBp0FSz1srjoIoIzAeRlO86UbP/preview" allow="autoplay" loading="lazy"></iframe>
+      </div>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1SBt4wrEWRodEf4nNkizO1hInw82wiucs/preview" allow="autoplay" loading="lazy"></iframe>
+      </div>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1RiLBuBm17ypWvi13vkxUiPKa3BBdoQ-P/preview" allow="autoplay" loading="lazy"></iframe>
+      </div>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1QYGp18ChCqjLYGqpSHOvxaPumKODgbvj/preview" allow="autoplay" loading="lazy"></iframe>
       </div>
     </div>
-    <p style="text-align:center; margin-top:30px; color:var(--gray); font-size:0.85rem;">
-      Replace placeholder images by adding your event photos to the gallery folder
-    </p>
   </section>
 
   <!-- Services -->
