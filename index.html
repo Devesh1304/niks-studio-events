@@ -458,53 +458,48 @@
       }
     }
 
-    /* Testimonials */
-    .testimonials-grid {
+    /* Why Choose Us */
+    .why-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .testimonial-card {
+    .why-card {
       background: var(--black-card);
       border: 1px solid rgba(212, 168, 83, 0.1);
       padding: 40px 30px;
-      position: relative;
-      transition: border-color 0.3s;
+      text-align: center;
+      transition: all 0.3s;
     }
 
-    .testimonial-card:hover { border-color: var(--gold); }
+    .why-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(212, 168, 83, 0.1);
+    }
 
-    .quote-icon {
+    .why-number {
       font-family: 'Playfair Display', serif;
-      font-size: 4rem;
+      font-size: 2.8rem;
       color: var(--gold);
-      opacity: 0.3;
+      margin-bottom: 15px;
       line-height: 1;
-      margin-bottom: 10px;
     }
 
-    .testimonial-card p {
-      font-size: 0.95rem;
-      line-height: 1.8;
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
       color: var(--white);
-      opacity: 0.8;
-      font-style: italic;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
-    .testimonial-author {
-      font-size: 0.85rem;
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    .testimonial-event {
-      font-size: 0.8rem;
+    .why-card p {
+      font-size: 0.9rem;
       color: var(--gray);
-      margin-top: 3px;
+      line-height: 1.7;
     }
 
     /* Contact */
@@ -696,7 +691,7 @@
     /* Responsive */
     @media (max-width: 992px) {
       .services-grid,
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .hero h1 { font-size: 2.8rem; }
     }
@@ -725,7 +720,7 @@
       .hero .tagline { font-size: 0.9rem; letter-spacing: 2px; }
 
       .services-grid,
-      .testimonials-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
 
       .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
       .stats { grid-template-columns: repeat(2, 1fr); gap: 15px; }
@@ -748,7 +743,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#why-choose">Why Us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -914,31 +909,33 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="testimonials" id="testimonials">
+  <!-- Why Choose Us -->
+  <section class="why-choose" id="why-choose">
     <div class="section-header fade-in">
-      <h2>Client Reviews</h2>
-      <p>What People Say</p>
+      <h2>Why Choose Us</h2>
+      <p>What Sets Us Apart</p>
       <div class="divider"></div>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-in">
-        <div class="quote-icon">"</div>
-        <p>Nik's Events & Studio made our wedding absolutely magical. Every detail was perfectly handled. The decorations were breathtaking and the photography captured every beautiful moment!</p>
-        <div class="testimonial-author">Priya & Rahul Patel</div>
-        <div class="testimonial-event">Wedding Ceremony</div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-number">10+</div>
+        <h3>Years of Experience</h3>
+        <p>Over a decade of crafting unforgettable events across Lunawada and Gujarat. Our experience ensures flawless execution every time.</p>
       </div>
-      <div class="testimonial-card fade-in">
-        <div class="quote-icon">"</div>
-        <p>We hired Nik's Events & Studio for our Divya Bhaskar corporate event and they exceeded all expectations. Professional, creative, and extremely well organized. Highly recommended!</p>
-        <div class="testimonial-author">Amit Shah</div>
-        <div class="testimonial-event">Divya Bhaskar Corporate Event</div>
+      <div class="why-card fade-in">
+        <div class="why-number">2000+</div>
+        <h3>Events Delivered</h3>
+        <p>From intimate gatherings to grand celebrations, we have successfully managed over 2000 events with complete client satisfaction.</p>
       </div>
-      <div class="testimonial-card fade-in">
-        <div class="quote-icon">"</div>
-        <p>Nik's Events & Studio handled our engagement ceremony beautifully. The stage decoration and photography were top-notch. Every moment was captured perfectly!</p>
-        <div class="testimonial-author">Meena Desai</div>
-        <div class="testimonial-event">Engagement Ceremony</div>
+      <div class="why-card fade-in">
+        <div class="why-number">&#9733;</div>
+        <h3>Trusted by Divya Bhaskar</h3>
+        <p>Proud to have partnered with Divya Bhaskar for corporate events — a testament to our professionalism and quality of work.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-number">&#127909;</div>
+        <h3>Studio + Events Under One Roof</h3>
+        <p>Photography, videography, and complete event management — everything handled by one team for a seamless experience.</p>
       </div>
     </div>
   </section>
