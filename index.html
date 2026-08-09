@@ -363,73 +363,99 @@
     /* Gallery */
     .gallery { background: var(--black-light); }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .reels-container {
+      display: flex;
       gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 5% 20px;
+      max-width: 100%;
+      scrollbar-width: none;
     }
 
-    .gallery-item {
-      aspect-ratio: 16/9;
-      overflow: hidden;
+    .reels-container::-webkit-scrollbar { display: none; }
+
+    .reel-item {
+      flex: 0 0 280px;
+      height: 500px;
+      scroll-snap-align: center;
       position: relative;
-      cursor: pointer;
+      border-radius: 16px;
+      overflow: hidden;
       background: var(--black-card);
-      border: 1px solid rgba(212, 168, 83, 0.1);
+      border: 1px solid rgba(212, 168, 83, 0.15);
+      cursor: pointer;
     }
 
-    .gallery-item video,
-    .gallery-item iframe {
+    .reel-item video,
+    .reel-item iframe {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border: none;
+      border-radius: 16px;
     }
 
-    .gallery-item::before {
-      content: '';
+    .reel-overlay {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.8), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 1;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 16px 16px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      z-index: 2;
+      pointer-events: none;
     }
 
-    .gallery-item:hover::before { opacity: 1; }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: var(--gray);
-      font-size: 0.85rem;
-    }
-
-    .gallery-placeholder .icon { font-size: 2rem; }
-
-    .gallery-label {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      color: var(--gold);
+    .reel-title {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s;
+      color: var(--gold);
+      margin-bottom: 4px;
     }
 
-    .gallery-item:hover .gallery-label {
-      opacity: 1;
-      transform: translateY(0);
+    .reel-subtitle {
+      font-size: 0.75rem;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .reel-play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      background: rgba(212, 168, 83, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 1.2rem;
+      color: var(--black);
+    }
+
+    .reel-item.paused .reel-play-icon { opacity: 1; }
+
+    .reels-scroll-hint {
+      text-align: center;
+      margin-top: 15px;
+      color: var(--gray);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .reel-item {
+        flex: 0 0 240px;
+        height: 420px;
+      }
     }
 
     /* Testimonials */
@@ -700,7 +726,6 @@
 
       .services-grid,
       .testimonials-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
 
       .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
       .stats { grid-template-columns: repeat(2, 1fr); gap: 15px; }
@@ -798,46 +823,86 @@
       <p>Moments We've Captured</p>
       <div class="divider"></div>
     </div>
-    <div class="gallery-grid fade-in">
-      <div class="gallery-item">
-        <iframe src="https://www.youtube-nocookie.com/embed/KoJoY8L59X4?autoplay=1&mute=1&loop=1&playlist=KoJoY8L59X4&controls=0&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
+    <div class="reels-container">
+      <div class="reel-item paused" data-youtube="KoJoY8L59X4">
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Event Highlight</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=15zQFtM-FeUFvQ6a2Eo9r2HA9CBakWlcD" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Wedding Moments</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=1zbI8AD76byliK9g1FzHsAM5Z-R3DCqi3" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Grand Celebration</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=1tSjU-h5G_il0JBgW6832lQp_jrfhdUbN" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Stage Decoration</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=13ywePtzBp0FSz1srjoIoIzAeRlO86UbP" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Event Setup</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=1SBt4wrEWRodEf4nNkizO1hInw82wiucs" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Adarsh 2026</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=1RiLBuBm17ypWvi13vkxUiPKa3BBdoQ-P" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Event Highlights</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
+      <div class="reel-item paused">
+        <video muted loop playsinline preload="metadata">
           <source src="https://drive.google.com/uc?export=download&id=1QYGp18ChCqjLYGqpSHOvxaPumKODgbvj" type="video/mp4">
         </video>
+        <div class="reel-play-icon">&#9654;</div>
+        <div class="reel-overlay">
+          <div class="reel-title">Best Moments</div>
+          <div class="reel-subtitle">Nik's Events & Studio</div>
+        </div>
       </div>
     </div>
+    <p class="reels-scroll-hint">&#8592; Swipe to see more reels &#8594;</p>
   </section>
 
   <!-- Services -->
@@ -1015,6 +1080,50 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Reels: autoplay on scroll, pause when out of view
+    const reelObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const reel = entry.target;
+        const video = reel.querySelector('video');
+        const ytId = reel.dataset.youtube;
+
+        if (entry.isIntersecting) {
+          if (video) {
+            video.play().catch(() => {});
+            reel.classList.remove('paused');
+          } else if (ytId && !reel.querySelector('iframe')) {
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0&rel=0&modestbranding=1&playsinline=1`;
+            iframe.allow = 'autoplay; encrypted-media';
+            iframe.allowFullscreen = true;
+            reel.insertBefore(iframe, reel.firstChild);
+            reel.classList.remove('paused');
+          }
+        } else {
+          if (video) {
+            video.pause();
+            reel.classList.add('paused');
+          }
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.reel-item').forEach(reel => {
+      reelObserver.observe(reel);
+
+      reel.addEventListener('click', () => {
+        const video = reel.querySelector('video');
+        if (!video) return;
+        if (video.paused) {
+          video.play();
+          reel.classList.remove('paused');
+        } else {
+          video.pause();
+          reel.classList.add('paused');
+        }
+      });
+    });
 
     // Form handler
     function handleSubmit(e) {
