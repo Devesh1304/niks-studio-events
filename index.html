@@ -83,22 +83,45 @@
       font-weight: 400;
       letter-spacing: 1px;
       text-transform: uppercase;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
       position: relative;
+      padding: 10px 15px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.3), transparent);
+      transition: left 0.5s;
+      z-index: -1;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: 0;
       left: 0;
       width: 0;
-      height: 2px;
-      background: var(--gold);
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
       transition: width 0.3s;
+      z-index: 1;
     }
 
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(212, 168, 83, 0.15);
+      box-shadow: 0 0 15px rgba(212, 168, 83, 0.2), inset 0 0 15px rgba(212, 168, 83, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .nav-links a:hover::before { left: 100%; }
     .nav-links a:hover::after { width: 100%; }
 
     .hamburger {
