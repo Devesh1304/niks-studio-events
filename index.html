@@ -603,20 +603,105 @@
       gap: 25px;
     }
 
-    .booking-frame {
+    .booking-form {
       width: 100%;
-      height: 1400px;
+      padding: 40px;
+      background: linear-gradient(160deg, #141414, #0B0B0B);
       border: 1px solid rgba(212, 168, 83, 0.3);
-      border-radius: 12px;
-      background: var(--white);
-      box-shadow: 0 0 30px rgba(212, 168, 83, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(212, 168, 83, 0.12);
+    }
+
+    .bf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 24px;
+    }
+
+    .bf-field { display: flex; flex-direction: column; gap: 8px; }
+    .bf-wide { grid-column: 1 / -1; }
+
+    .bf-field span,
+    .bf-req legend {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .bf-field input,
+    .bf-field select {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--black-light);
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color-scheme: dark;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .bf-field input:focus,
+    .bf-field select:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 14px rgba(212, 168, 83, 0.3);
+    }
+
+    .bf-field input.invalid,
+    .bf-field select.invalid { border-color: #E5534B; }
+
+    .bf-req {
+      margin-top: 26px;
+      border: 1px solid rgba(212, 168, 83, 0.25);
+      border-radius: 8px;
+      padding: 16px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 30px;
+      align-items: center;
+    }
+
+    .bf-req legend { padding: 0 8px; }
+
+    .bf-req label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .bf-req input { accent-color: var(--gold); width: 18px; height: 18px; }
+
+    .bf-error { color: #E5534B; margin-top: 18px; font-size: 0.9rem; }
+
+    .bf-submit { margin-top: 26px; width: 100%; cursor: pointer; font-family: inherit; }
+
+    .bf-note { color: var(--gray); font-size: 0.85rem; text-align: center; margin-top: 14px; }
+
+    .bf-thanks {
+      width: 100%;
+      padding: 50px 30px;
+      text-align: center;
+      background: linear-gradient(160deg, #141414, #0B0B0B);
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      box-shadow: 0 0 40px rgba(212, 168, 83, 0.25);
+    }
+
+    .bf-thanks h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 2rem; margin-bottom: 12px; }
+    .bf-thanks p { color: var(--white); opacity: 0.85; }
+
+    @media (max-width: 768px) {
+      .booking-form { padding: 24px 18px; }
+      .bf-grid { grid-template-columns: 1fr; }
     }
 
     .book-link { margin-top: 15px; font-size: 0.8rem; padding: 12px 24px; }
 
-    @media (max-width: 768px) {
-      .booking-frame { height: 1600px; }
-    }
 
     .contact-wrapper {
       display: grid;
@@ -1048,13 +1133,90 @@
       <div class="divider"></div>
     </div>
     <div class="booking-wrapper fade-in">
-      <iframe
-        class="booking-frame"
-        src="https://docs.google.com/forms/d/e/1FAIpQLScRjtVKLI8f-wLFhoxh_xtGatoJtW0zoP_hIsXnSiK6MTp-Vw/viewform?embedded=true"
-        title="LED Screen, Truss and Lighting Booking Form"
-        loading="lazy"
-      >Loading…</iframe>
-      <a class="btn btn-solid booking-open" href="https://docs.google.com/forms/d/e/1FAIpQLScRjtVKLI8f-wLFhoxh_xtGatoJtW0zoP_hIsXnSiK6MTp-Vw/viewform" target="_blank" rel="noopener">Open Booking Form in New Tab</a>
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="bf-grid">
+          <label class="bf-field">
+            <span>Your Name *</span>
+            <input name="entry.1759980100" type="text" required placeholder="Full name">
+          </label>
+          <label class="bf-field">
+            <span>Contact Number *</span>
+            <input name="entry.1362465109" type="tel" required placeholder="10-digit mobile number">
+          </label>
+          <label class="bf-field">
+            <span>Event Date *</span>
+            <input id="bfDate" type="date" required>
+          </label>
+          <label class="bf-field">
+            <span>Event Time *</span>
+            <input id="bfTime" type="time" required>
+          </label>
+          <label class="bf-field bf-wide">
+            <span>Event Location *</span>
+            <input name="entry.1770269136" type="text" required placeholder="Venue / address">
+          </label>
+          <label class="bf-field">
+            <span>Event Type *</span>
+            <select name="entry.1477365566" required>
+              <option value="">Select event type</option>
+              <option>Marriage</option>
+              <option>Function</option>
+              <option>Corporate Event</option>
+              <option>Garba Night</option>
+            </select>
+          </label>
+          <label class="bf-field">
+            <span>LED Screen Size</span>
+            <select name="entry.209582734">
+              <option value="">Select size (optional)</option>
+              <option>8 x 12</option>
+              <option>10 x 20</option>
+              <option>300 foot with mapping</option>
+              <option>400 foot with mapping</option>
+              <option>500 foot with mapping</option>
+              <option>600 foot with mapping</option>
+              <option>700 foot with mapping</option>
+              <option>800 foot with mapping</option>
+              <option>900 foot with mapping</option>
+            </select>
+          </label>
+          <label class="bf-field">
+            <span>Live Setup Camera</span>
+            <select name="entry.1092699444">
+              <option value="">Select setup (optional)</option>
+              <option>Live Streaming</option>
+              <option>1 Camera live</option>
+              <option>2 camera Live with Wireless</option>
+              <option>2 camera Live with Wireless with Mixer</option>
+              <option>3 camera Live with Wireless</option>
+              <option>1 camera Live with Wireless with Mixer</option>
+            </select>
+          </label>
+          <label class="bf-field">
+            <span>Photography</span>
+            <select name="entry.1916185115">
+              <option value="">Select option (optional)</option>
+              <option>1  camera</option>
+              <option>2 camera</option>
+            </select>
+          </label>
+        </div>
+
+        <fieldset class="bf-req">
+          <legend>What do you need? *</legend>
+          <label><input type="checkbox" name="entry.2032324161" value="LED SCREEN"> LED Screen</label>
+          <label><input type="checkbox" name="entry.2032324161" value="TRUSS AND LIGHTING"> Truss &amp; Lighting</label>
+        </fieldset>
+
+        <p class="bf-error" id="bfError" hidden></p>
+        <button type="submit" class="btn btn-filled bf-submit" id="bfSubmit">Send Booking Request</button>
+        <p class="bf-note">We'll confirm your booking on the number you provide.</p>
+      </form>
+
+      <div class="bf-thanks" id="bfThanks" hidden>
+        <h3>Thank you!</h3>
+        <p>Your booking request has been sent. We'll get in touch soon.</p>
+      </div>
     </div>
   </section>
 
@@ -1313,6 +1475,64 @@
 
     const statsSection = document.querySelector('.stats');
     if (statsSection) statsObserver.observe(statsSection);
+
+    // Booking form: checks the fields, then sends the answers to the Google Form
+    const BOOKING_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScRjtVKLI8f-wLFhoxh_xtGatoJtW0zoP_hIsXnSiK6MTp-Vw/formResponse';
+    const bookingForm = document.getElementById('bookingForm');
+
+    bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorBox = document.getElementById('bfError');
+      const submitBtn = document.getElementById('bfSubmit');
+      errorBox.hidden = true;
+      bookingForm.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+
+      // Required fields
+      let missing = false;
+      bookingForm.querySelectorAll('[required]').forEach(el => {
+        if (!el.value.trim()) { el.classList.add('invalid'); missing = true; }
+      });
+      const needChecked = [...bookingForm.querySelectorAll('input[type="checkbox"]')].some(c => c.checked);
+
+      if (missing || !needChecked) {
+        errorBox.textContent = missing
+          ? 'Please fill in all required fields (marked *).'
+          : 'Please choose LED Screen and/or Truss & Lighting.';
+        errorBox.hidden = false;
+        return;
+      }
+
+      // Build the answers exactly as the Google Form expects them
+      const data = new FormData();
+      bookingForm.querySelectorAll('input[name]:not([type="checkbox"]), select[name]').forEach(el => {
+        if (el.value.trim()) data.append(el.name, el.value.trim());
+      });
+      bookingForm.querySelectorAll('input[type="checkbox"]:checked').forEach(c => data.append(c.name, c.value));
+
+      // Date and time are split into parts in the Google Form
+      const [year, month, day] = document.getElementById('bfDate').value.split('-');
+      data.append('entry.746304710_year', year);
+      data.append('entry.746304710_month', parseInt(month, 10));
+      data.append('entry.746304710_day', parseInt(day, 10));
+      const [hour, minute] = document.getElementById('bfTime').value.split(':');
+      data.append('entry.59280188_hour', parseInt(hour, 10));
+      data.append('entry.59280188_minute', parseInt(minute, 10));
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      try {
+        // no-cors: Google does not allow reading the reply, but the answers are saved
+        await fetch(BOOKING_URL, { method: 'POST', mode: 'no-cors', body: data });
+        bookingForm.hidden = true;
+        document.getElementById('bfThanks').hidden = false;
+        document.getElementById('bfThanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        errorBox.textContent = 'Could not send your request. Please try again or contact us on WhatsApp.';
+        errorBox.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Booking Request';
+      }
+    });
 
     // Form handler
     function handleSubmit(e) {
