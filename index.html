@@ -712,6 +712,17 @@
 
     .book-link { margin-top: 15px; font-size: 0.8rem; padding: 12px 24px; }
 
+    .contact-status {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      background: rgba(212, 168, 83, 0.08);
+      text-align: center;
+    }
+
+    .contact-status p { color: var(--white); margin-bottom: 14px; }
+
 
     .contact-wrapper {
       display: grid;
@@ -1290,6 +1301,7 @@
         <input type="date" placeholder="Event Date">
         <textarea placeholder="Tell us about your event..." rows="4"></textarea>
         <button type="submit" class="btn btn-filled">Send Inquiry</button>
+        <div class="contact-status" id="contactStatus" hidden></div>
       </form>
     </div>
   </section>
@@ -1555,7 +1567,24 @@
       const name = form.querySelector('input[type="text"]').value;
       const phone = form.querySelector('input[type="tel"]').value;
       const msg = `Hi Nik's Events & Studio! I'm ${name} (${phone}). I'd like to discuss event planning.`;
-      window.open(`https://wa.me/919979705570?text=${encodeURIComponent(msg)}`, '_blank');
+      const url = `https://wa.me/919979705570?text=${encodeURIComponent(msg)}`;
+
+      // Show a confirmation with a button, so the visitor always sees a response
+      // even when the browser blocks pop-ups
+      const status = document.getElementById('contactStatus');
+      status.textContent = '';
+      const text = document.createElement('p');
+      text.textContent = `Thank you${name ? ', ' + name : ''}! Tap the button below to send your inquiry on WhatsApp.`;
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.className = 'btn btn-neon';
+      link.textContent = 'Open WhatsApp';
+      status.append(text, link);
+      status.hidden = false;
+
+      window.open(url, '_blank');
       form.reset();
     }
   </script>
