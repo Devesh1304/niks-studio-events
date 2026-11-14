@@ -599,6 +599,33 @@
     /* Contact */
     .contact { background: var(--black-light); }
 
+    /* Booking (Google Form) */
+    .booking { background: var(--black); }
+
+    .booking-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .booking-frame {
+      width: 100%;
+      height: 1400px;
+      border: 1px solid rgba(212, 168, 83, 0.3);
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 0 30px rgba(212, 168, 83, 0.15);
+    }
+
+    .book-link { margin-top: 15px; font-size: 0.8rem; padding: 12px 24px; }
+
+    @media (max-width: 768px) {
+      .booking-frame { height: 1600px; }
+    }
+
     .contact-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -945,6 +972,7 @@
         <div class="service-icon">&#128250;</div>
         <h3>LED Screen Rent & Setup</h3>
         <p>LED screens available for rent with complete setup for events, weddings, conferences, and outdoor functions.</p>
+        <a href="#booking" class="btn btn-neon book-link">Book LED, Truss &amp; Lighting</a>
       </div>
       <div class="service-card fade-in">
         <div class="service-icon">&#127891;</div>
@@ -1017,6 +1045,24 @@
         <h3>Studio + Events Under One Roof</h3>
         <p>Photography, videography, and complete event management — everything handled by one team for a seamless experience.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- LED Screen, Truss & Lighting Booking -->
+  <section class="booking" id="booking">
+    <div class="section-header fade-in">
+      <h2>LED Screen, Truss &amp; Lighting Booking</h2>
+      <p>Fill in the form to request your LED screen, truss and lighting</p>
+      <div class="divider"></div>
+    </div>
+    <div class="booking-wrapper fade-in">
+      <iframe
+        class="booking-frame"
+        src="https://docs.google.com/forms/d/e/1FAIpQLScRjtVKLI8f-wLFhoxh_xtGatoJtW0zoP_hIsXnSiK6MTp-Vw/viewform?embedded=true"
+        title="LED Screen, Truss and Lighting Booking Form"
+        loading="lazy"
+      >Loading…</iframe>
+      <a class="btn btn-solid booking-open" href="https://docs.google.com/forms/d/e/1FAIpQLScRjtVKLI8f-wLFhoxh_xtGatoJtW0zoP_hIsXnSiK6MTp-Vw/viewform" target="_blank" rel="noopener">Open Booking Form in New Tab</a>
     </div>
   </section>
 
