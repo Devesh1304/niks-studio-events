@@ -90,17 +90,8 @@
       overflow: hidden;
     }
 
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.3), transparent);
-      transition: left 0.5s;
-      z-index: -1;
-    }
+    /* Nav links: one plain style. Hover and the selected link both get a light yellow underline */
+    .nav-links a::before { display: none; }
 
     .nav-links a::after {
       content: '';
@@ -108,21 +99,22 @@
       bottom: 0;
       left: 0;
       width: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      height: 2px;
+      background: #FFF3A3;
       transition: width 0.3s;
       z-index: 1;
     }
 
-    .nav-links a:hover {
-      color: var(--gold);
-      background: rgba(212, 168, 83, 0.15);
-      box-shadow: 0 0 15px rgba(212, 168, 83, 0.2), inset 0 0 15px rgba(212, 168, 83, 0.1);
-      transform: translateY(-2px);
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+      background: none;
+      box-shadow: none;
+      transform: none;
     }
 
-    .nav-links a:hover::before { left: 100%; }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
 
     .hamburger {
       display: none;
@@ -181,7 +173,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 5%;
+      padding: 120px 5% 60px; /* keeps the logo clear of the fixed navbar */
       position: relative;
       background: linear-gradient(135deg, var(--black) 0%, var(--black-light) 50%, var(--black) 100%);
     }
@@ -1249,6 +1241,21 @@
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
       document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mark the nav link for the section currently in view as selected
+    const navSpy = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    ['home', 'about', 'gallery', 'services', 'why-choose', 'contact'].forEach(id => {
+      const section = document.getElementById(id);
+      if (section) navSpy.observe(section);
     });
 
     // Mobile menu
