@@ -1535,7 +1535,8 @@
       submitBtn.textContent = 'Sending…';
       try {
         // no-cors: Google does not allow reading the reply, but the answers are saved
-        await fetch(BOOKING_URL, { method: 'POST', mode: 'no-cors', body: data });
+        // Sent as form-encoded data, the same format Google's form accepts
+        await fetch(BOOKING_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(data) });
         bookingForm.hidden = true;
         document.getElementById('bfThanks').hidden = false;
         document.getElementById('bfThanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
