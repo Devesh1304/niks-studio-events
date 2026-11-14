@@ -1577,11 +1577,26 @@
           postForm.appendChild(input);
         }
         document.body.appendChild(postForm);
+        // Show the thank-you only once Google has answered the request in the hidden frame.
+        // The page cannot read Google's status code, so a reply that is not 200 cannot be
+        // told apart here; if the reply never arrives, the visitor sees a message instead.
+        const showThanks = () => {
+          clearTimeout(timeout);
+          frame.removeEventListener('load', showThanks);
+          bookingForm.hidden = true;
+          document.getElementById('bfThanks').hidden = false;
+          document.getElementById('bfThanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+        const timeout = setTimeout(() => {
+          frame.removeEventListener('load', showThanks);
+          errorBox.textContent = 'We could not confirm your request. Please try again or contact us on WhatsApp.';
+          errorBox.hidden = false;
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Booking Request';
+        }, 20000);
+        frame.addEventListener('load', showThanks);
         postForm.submit();
         setTimeout(() => postForm.remove(), 2000);
-        bookingForm.hidden = true;
-        document.getElementById('bfThanks').hidden = false;
-        document.getElementById('bfThanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } catch (err) {
         errorBox.textContent = 'Could not send your request. Please try again or contact us on WhatsApp.';
         errorBox.hidden = false;
